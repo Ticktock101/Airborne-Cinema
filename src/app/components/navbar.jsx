@@ -25,7 +25,7 @@ export default function Navbar() {
     }
 
     return (
-        <header className="h-12 w-12 ">
+        <header className="h-12 w-12 absolute">
             <nav ref={navRef} className=" fixed top-0 left-0 w-screen h-screen rounded-bl-full flex flex-col transform translate-x-full -translate-y-full transition-transform duration-1000 ease-in-out">
                 <button className="fixed top-4 right-4 self-end w-12 h-12 rounded-full flex justify-center " onClick={showNavbar}>
                     <MdClose className="self-center"/>
