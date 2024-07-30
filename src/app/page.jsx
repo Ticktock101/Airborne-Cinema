@@ -9,20 +9,22 @@ export default function Home() {
     <div className="h-screen w-screen">
       <Navbar className="self-end"/>
       <Title/>
-      <div className="flex">
+      <div className="flex flex-wrap max-w-screen-lg w-full justify-between">
         <Job
-        image=""
+        image="/agricultureDroneImage.jpg"
         title="Agriculture"
         />
         <Job
-        image=""
+        image="/agricultureDroneImage.jpg"
         title="Civil"
         />
         <Job
-        image=""
+        image="/agricultureDroneImage.jpg"
         title="Construction"
         />
       </div>
+      
+      
     </div>
     
   );
