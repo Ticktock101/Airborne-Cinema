@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Navbar from "./components/navbar";
 import Title from "./components/title";
-import Job from "./components/job"
+import Pictures from "./components/pictures";
+// import Job from "./components/job"
 // import "./styling/homepage.css";
 
 export default function Home() {
@@ -10,15 +11,15 @@ export default function Home() {
       <Navbar className="self-end"/>
       <Title/>
       <div className="flex flex-wrap max-w-screen-lg w-full justify-between">
-        <Job
+        <Pictures
         image="/agricultureDroneImage.jpg"
         title="Agriculture"
         />
-        <Job
+        <Pictures
         image="/agricultureDroneImage.jpg"
         title="Civil"
         />
-        <Job
+        <Pictures
         image="/agricultureDroneImage.jpg"
         title="Construction"
         />
