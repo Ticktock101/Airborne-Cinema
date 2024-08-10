@@ -1,22 +1,57 @@
-"use client"
-
-import "../styling/homepage.css"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import { Carousel } from "@material-tailwind/react";
+import { getStorage, ref, getMetadata } from "firebase/storage";
+import { storage } from "../../../firebase-config";
 
 export default function Job({ title, images }) {
+    const [mediaTypes, setMediaTypes] = useState([]);
+
+    useEffect(() => {
+        const fetchMetadata = async () => {
+            const types = await Promise.all(images.map(async (imageUrl) => {
+                const imageRef = ref(storage, imageUrl);
+                const metadata = await getMetadata(imageRef);
+                return metadata.contentType.startsWith("video/") ? "video" : "image";
+            }));
+            setMediaTypes(types);
+        };
+
+        fetchMetadata();
+    }, [images]);
+
     return (
         <div>
             <h1>{title}</h1>
-            <div data-carousel="slide">
-                <div>
-                    {images?.map((imageUrl, index) => (
-                        <div data-carousel-item>
-                            <img key={index} src={imageUrl} alt={`Image ${index + 1}`} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-            
+            <Carousel className="rounded-xl">
+                {images?.map((imageUrl, index) => {
+                    const mediaType = mediaTypes[index];
+
+                    if (mediaType === "video") {
+                        return (
+                            <div key={index}>
+                                <video 
+                                    className="w-full object-cover" 
+                                    controls 
+                                    src={imageUrl} 
+                                    alt={`Video ${index + 1}`}
+                                >
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        );
+                    } else {
+                        return (
+                            <div key={index}>
+                                <img 
+                                    className="w-full object-cover" 
+                                    src={imageUrl} 
+                                    alt={`Image ${index + 1}`} 
+                                />
+                            </div>
+                        );
+                    }
+                })}
+            </Carousel>
         </div>
     );
 }

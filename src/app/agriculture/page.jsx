@@ -5,6 +5,7 @@ import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { useEffect, useState } from "react";
 import Job from "../components/job";
 import Navbar from "../components/navbar";
+// import "../globals.css";
 
 export default function Agriculture() {
     const [folders, setFolders] = useState([]);
@@ -39,7 +40,7 @@ export default function Agriculture() {
 
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <h1>Agriculture</h1>
             {Object.entries(images).map(([header, imageLink]) => (
                 <Job 
