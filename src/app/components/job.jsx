@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Carousel } from "@material-tailwind/react";
+// import { Carousel } from "@material-tailwind/react";
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { getStorage, ref, getMetadata } from "firebase/storage";
 import { storage } from "../../../firebase-config";
 
