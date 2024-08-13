@@ -7,13 +7,13 @@ import Job from "../components/job";
 import Navbar from "../components/navbar";
 // import "../globals.css";
 
-export default function Agriculture() {
+export default function Construction() {
     const [folders, setFolders] = useState([]);
     const [images, setImages] = useState({});
 
     useEffect(() => {
         const listFolders = async () => {
-            const storageRef = ref(storage, "agriculture");
+            const storageRef = ref(storage, "construction");
             try {
                 const res = await listAll(storageRef);
                 const folderNames = res.prefixes.map((folderRef) => folderRef.name);
@@ -22,7 +22,7 @@ export default function Agriculture() {
                 const imagesData = {};
                 for (const folderRef of res.prefixes) {
                     const folderName = folderRef.name;
-                    const folderImagesRef = ref(storage, `agriculture/${folderName}`);
+                    const folderImagesRef = ref(storage, `construction/${folderName}`);
                     const folderImagesRes = await listAll(folderImagesRef);
                     const imageUrls = await Promise.all(
                         folderImagesRes.items.map((imageRef) => getDownloadURL(imageRef))
@@ -41,7 +41,7 @@ export default function Agriculture() {
     return (
         <div>
             <Navbar />
-            <h1>Agriculture</h1>
+            <h1>Construction</h1>
             {Object.entries(images).map(([header, imageLink]) => (
                 <Job 
                     title={header}

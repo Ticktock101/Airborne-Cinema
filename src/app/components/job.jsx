@@ -4,6 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { getStorage, ref, getMetadata } from "firebase/storage";
 import { storage } from "../../../firebase-config";
+import Navbar from "./navbar";
 
 export default function Job({ title, images }) {
     const [mediaTypes, setMediaTypes] = useState([]);
@@ -24,7 +25,7 @@ export default function Job({ title, images }) {
     return (
         <div>
             <h1>{title}</h1>
-            <Carousel className="rounded-xl">
+            <Carousel>
                 {images?.map((imageUrl, index) => {
                     const mediaType = mediaTypes[index];
 

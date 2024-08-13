@@ -7,20 +7,21 @@ import Pictures from "./components/pictures";
 
 export default function Home() {
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-full ">
       <Navbar className="self-end"/>
       <Title/>
-      <div className="flex flex-wrap max-w-screen-lg w-full justify-between">
+      <div className="flex w-full justify-around items-center h-3/6">
         <Pictures
-        image="/agricultureDroneImage.jpg"
+        image="/agricultureDroneImage.png"
         title="Agriculture"
+        className=""
         />
         <Pictures
-        image="/agricultureDroneImage.jpg"
+        image="/droneCivil.jpg"
         title="Civil"
         />
         <Pictures
-        image="/agricultureDroneImage.jpg"
+        image="/droneConstruction.jpg"
         title="Construction"
         />
       </div>
