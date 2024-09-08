@@ -18,6 +18,8 @@ header button {
     position: fixed;
     background-color: white;
     transform: none;
+    /* border: 10px;
+    border-color: black; */
 }
 
 header {

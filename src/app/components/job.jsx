@@ -23,17 +23,17 @@ export default function Job({ title, images }) {
     }, [images]);
 
     return (
-        <div>
-            <h1>{title}</h1>
-            <Carousel>
+        <div className="">
+            <h1 className="text-4xl font-bold mb-2">{title}</h1>
+            <Carousel className="overflow-hidden">
                 {images?.map((imageUrl, index) => {
                     const mediaType = mediaTypes[index];
 
                     if (mediaType === "video") {
                         return (
-                            <div key={index}>
+                            <div className="" key={index}>
                                 <video 
-                                    className="w-full object-cover" 
+                                    className="w-full object-cover rounded-xl" 
                                     controls 
                                     src={imageUrl} 
                                     alt={`Video ${index + 1}`}
@@ -44,9 +44,9 @@ export default function Job({ title, images }) {
                         );
                     } else {
                         return (
-                            <div key={index}>
+                            <div className="" key={index}>
                                 <img 
-                                    className="w-full object-cover" 
+                                    className="w-full object-cover rounded-xl" 
                                     src={imageUrl} 
                                     alt={`Image ${index + 1}`} 
                                 />

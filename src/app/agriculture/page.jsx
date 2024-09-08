@@ -5,6 +5,7 @@ import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { useEffect, useState } from "react";
 import Job from "../components/job";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 // import "../globals.css";
 
 export default function Agriculture() {
@@ -39,15 +40,24 @@ export default function Agriculture() {
     }, []);
 
     return (
-        <div>
-            <Navbar />
-            <h1>Agriculture</h1>
-            {Object.entries(images).map(([header, imageLink]) => (
-                <Job 
-                    title={header}
-                    images={imageLink}
-                />
-            ))}
+        <div className="w-full h-full bg-agriculture-color text-agriculture-text">
+            <div className="flex flex-col place-items-center">
+                <Navbar />
+                <div className="w-full h-auto flex justify-center items-center">
+                    <h1 className="text-8xl ">Agriculture</h1>
+                </div>
+                {/* <div className="w-5/6"> */}
+                {Object.entries(images).map(([header, imageLink]) => (
+                    <div className="w-[95%] mt-6 mb-4 border-8 border-color-agriculture-text p-4 rounded-3xl">
+                        <Job 
+                            title={header}
+                            images={imageLink}
+                            className="w-full h-full"
+                        />
+                    </div>
+                ))}
+            </div>
+            <Footer/>
         </div>
     );
 }
