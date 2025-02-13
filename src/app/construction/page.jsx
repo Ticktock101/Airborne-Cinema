@@ -1,53 +1,55 @@
-"use client";
+// commented out because it wasn't deploying correctly
 
-import { storage } from "../../../firebase-config";
-import { ref, listAll, getDownloadURL } from "firebase/storage";
-import { useEffect, useState } from "react";
-import Job from "../components/job";
-import Navbar from "../components/navbar";
-// import "../globals.css";
+// "use client";
 
-export default function Construction() {
-    const [folders, setFolders] = useState([]);
-    const [images, setImages] = useState({});
+// import { storage } from "../../../firebase-config";
+// import { ref, listAll, getDownloadURL } from "firebase/storage";
+// import { useEffect, useState } from "react";
+// import Job from "../components/job";
+// import Navbar from "../components/navbar";
+// // import "../globals.css";
 
-    useEffect(() => {
-        const listFolders = async () => {
-            const storageRef = ref(storage, "construction");
-            try {
-                const res = await listAll(storageRef);
-                const folderNames = res.prefixes.map((folderRef) => folderRef.name);
-                setFolders(folderNames);
+// export default function Construction() {
+//     const [folders, setFolders] = useState([]);
+//     const [images, setImages] = useState({});
 
-                const imagesData = {};
-                for (const folderRef of res.prefixes) {
-                    const folderName = folderRef.name;
-                    const folderImagesRef = ref(storage, `construction/${folderName}`);
-                    const folderImagesRes = await listAll(folderImagesRef);
-                    const imageUrls = await Promise.all(
-                        folderImagesRes.items.map((imageRef) => getDownloadURL(imageRef))
-                    );
-                    imagesData[folderName] = imageUrls;
-                }
-                setImages(imagesData);
-            } catch (error) {
-                console.error("Error listing folders:", error);
-            }
-        };
+//     useEffect(() => {
+//         const listFolders = async () => {
+//             const storageRef = ref(storage, "construction");
+//             try {
+//                 const res = await listAll(storageRef);
+//                 const folderNames = res.prefixes.map((folderRef) => folderRef.name);
+//                 setFolders(folderNames);
 
-        listFolders();
-    }, []);
+//                 const imagesData = {};
+//                 for (const folderRef of res.prefixes) {
+//                     const folderName = folderRef.name;
+//                     const folderImagesRef = ref(storage, `construction/${folderName}`);
+//                     const folderImagesRes = await listAll(folderImagesRef);
+//                     const imageUrls = await Promise.all(
+//                         folderImagesRes.items.map((imageRef) => getDownloadURL(imageRef))
+//                     );
+//                     imagesData[folderName] = imageUrls;
+//                 }
+//                 setImages(imagesData);
+//             } catch (error) {
+//                 console.error("Error listing folders:", error);
+//             }
+//         };
 
-    return (
-        <div>
-            <Navbar />
-            <h1>Construction</h1>
-            {Object.entries(images).map(([header, imageLink]) => (
-                <Job 
-                    title={header}
-                    images={imageLink}
-                />
-            ))}
-        </div>
-    );
-}
+//         listFolders();
+//     }, []);
+
+//     return (
+//         <div>
+//             <Navbar />
+//             <h1>Construction</h1>
+//             {Object.entries(images).map(([header, imageLink]) => (
+//                 <Job 
+//                     title={header}
+//                     images={imageLink}
+//                 />
+//             ))}
+//         </div>
+//     );
+// }
