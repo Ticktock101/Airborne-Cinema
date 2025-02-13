@@ -10,7 +10,7 @@
 // import Footer from "../components/footer";
 // // import "../globals.css";
 
-export default function Agriculture() {
+// export default function Agriculture() {
 //     const [folders, setFolders] = useState([]);
 //     const [images, setImages] = useState({});
 
@@ -62,4 +62,4 @@ export default function Agriculture() {
 //             <Footer/>
 //         </div>
 //     );
-}
+// }
