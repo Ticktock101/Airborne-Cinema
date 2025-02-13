@@ -1,6 +1,6 @@
 // commented out because it wasn't deploying correctly
 
-// "use client";
+"use client";
 
 // import { storage } from "../../../firebase-config";
 // import { ref, listAll, getDownloadURL } from "firebase/storage";
@@ -9,7 +9,7 @@
 // import Navbar from "../components/navbar";
 // // import "../globals.css";
 
-// export default function Civil() {
+export default function Civil() {
 //     const [folders, setFolders] = useState([]);
 //     const [images, setImages] = useState({});
 
@@ -52,4 +52,4 @@
 //             ))}
 //         </div>
 //     );
-// }
+}

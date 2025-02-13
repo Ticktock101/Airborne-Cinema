@@ -1,6 +1,6 @@
 // commented out because it wasn't deploying correctly
 
-// "use client";
+"use client";
 
 // import { storage } from "../../../firebase-config";
 // import { ref, listAll, getDownloadURL } from "firebase/storage";
@@ -10,7 +10,7 @@
 // import Footer from "../components/footer";
 // // import "../globals.css";
 
-// export default function Agriculture() {
+export default function Agriculture() {
 //     const [folders, setFolders] = useState([]);
 //     const [images, setImages] = useState({});
 
@@ -62,4 +62,4 @@
 //             <Footer/>
 //         </div>
 //     );
-// }
+}
