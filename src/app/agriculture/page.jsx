@@ -40,7 +40,7 @@ export default function Agriculture() {
     }, []);
 
     return (
-        <div className="w-full h-full bg-agriculture-color text-agriculture-text">
+        <div className="w-full h-full text-agriculture-text">
             <div className="flex flex-col place-items-center">
                 <Navbar />
                 <div className="w-full h-auto flex justify-center items-center">
